@@ -20,7 +20,7 @@ COPY run.sh run.sh
 RUN apk --no-cache add parallel
 
 RUN mkdir /etc/gocryptfs
-RUN adduser -D -u1000 gcfsuser
+RUN adduser -D -u10001 gcfsuser
 RUN chown  -R gcfsuser /etc/gocryptfs
 USER gcfsuser
 
