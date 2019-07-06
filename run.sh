@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-# Expects initialised gocryptfs cipherdir(s) at locations specified in:
+# Expects initialised gocryptfs cipherdir(s) within /crypts at locations specified in:
 #       /etc/gocryptfs/crypts
 # Decrypts and mounts them in symmetric locations within /mnt
 
