@@ -19,6 +19,11 @@ List of mounted CIPHERDIRs should be given at:
 /etc/gocryptfs/crypts
 ```
 
+Which should each be located under:
+```
+/crypts/
+```
+
 The decrypted file-systems will be mounted symmetrically at:
 ```
 /mnt/
