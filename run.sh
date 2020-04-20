@@ -4,6 +4,8 @@ set -e
 # Expects initialised gocryptfs cipherdir(s) within /crypts at locations specified in:
 #       /etc/gocryptfs/crypts
 # Decrypts and mounts them in symmetric locations within /mnt
+[ -e /etc/gocryptfs ] || mkdir /etc/gocryptfs
+[ -e /etc/gocryptfs/crypts ] || ls -d /crypts/* > /etc/gocryptfs/crypts
 
 sed s/crypts/mnt/g /etc/gocryptfs/crypts \
     | tee /etc/gocryptfs/mounts \

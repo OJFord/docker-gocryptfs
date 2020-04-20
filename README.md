@@ -14,14 +14,14 @@ Passphrase should be specified in:
 $GOCRYPTFS_PSWD
 ```
 
-List of mounted CIPHERDIRs should be given at:
-```
-/etc/gocryptfs/crypts
-```
-
-Which should each be located under:
+CIPHERDIRs should be mounted under:
 ```
 /crypts/
+```
+
+By default a flat structure is assumed, so that each first level directory should be a CIPHERDIR, instead, a list may be given at:
+```
+/etc/gocryptfs/crypts
 ```
 
 The decrypted file-systems will be mounted symmetrically at:
