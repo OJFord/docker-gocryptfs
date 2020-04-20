@@ -2,12 +2,32 @@
 
 All credit for the file-system itself to rfjakob/gocryptfs.
 
-## Usage
+## Releases
 
 Image is available at:
 ```
 docker.io/ojford/gocryptfs
 ```
+
+In addition to `latest`, tags are available as both:
+```
+<gocryptfs_version>
+<gocryptfs_version>-<docker_gcfs_release_number>
+```
+
+So that, for example, `gocryptfs` version `1.7.1` has:
+```
+1.7.1
+1.7.1-1
+```
+and any update to the packaging in this repository will result in updating:
+```
+1.7.1
+1.7.1-2
+```
+but leave `1.7.1-1` untouched. 
+
+## Usage
 
 Passphrase should be specified in:
 ```
