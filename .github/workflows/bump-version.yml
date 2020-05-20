@@ -1,0 +1,28 @@
+name: Auto-bump gocryptfs
+
+on:
+  schedule:
+    - cron:  '0 16 * * *'
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # non-shallow, in order to be able to push
+          fetch-depth: 0
+
+      - name: Fetch latest gocryptfs release
+        id: latest
+        run: echo "::set-output name=gocryptfs_version::$(curl --silent --location 'https://api.github.com/repos/rfjakob/gocryptfs/releases/latest' | jq -r ".tag_name" | sed 's/^v//')"
+
+      - name: Bump Dockerfile
+        run: sed -i -E "s/(GOCRYPTFS_VERSION) .*/\1 ${{ steps.latest.outputs.gocryptfs_version }}/" Dockerfile
+
+      - uses: stefanzweifel/git-auto-commit-action@v4.3.0
+        name: Commit change
+        with:
+          commit_message: Bump gocryptfs to v${{ steps.latest.outputs.gocryptfs_version }}
+          tagging_message: v${{ steps.latest.outputs.gocryptfs_version }}-1
+          push_options: '--all'
