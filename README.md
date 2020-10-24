@@ -2,6 +2,8 @@
 
 ![Auto-bump gocryptfs](https://github.com/OJFord/docker-gocryptfs/workflows/Auto-bump%20gocryptfs/badge.svg)
 
+![Build & publish](https://github.com/OJFord/docker-gocryptfs/workflows/Build%20&%20publish/badge.svg)
+
 All credit for the file-system itself to rfjakob/gocryptfs.
 
 ## Releases
