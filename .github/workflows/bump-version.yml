@@ -2,7 +2,7 @@ name: Auto-bump gocryptfs
 
 on:
   schedule:
-    - cron:  '0 16 * * *'
+    - cron:  '45 19 * * *'
 
 jobs:
   bump-version:
@@ -20,9 +20,9 @@ jobs:
       - name: Bump Dockerfile
         run: sed -i -E "s/(GOCRYPTFS_VERSION) .*/\1 ${{ steps.latest.outputs.gocryptfs_version }}/" Dockerfile
 
-      - uses: stefanzweifel/git-auto-commit-action@v4.3.0
+      - uses: EndBug/add-and-commit@v5
         name: Commit change
         with:
-          commit_message: Bump gocryptfs to v${{ steps.latest.outputs.gocryptfs_version }}
-          tagging_message: v${{ steps.latest.outputs.gocryptfs_version }}-1
-          push_options: '--all'
+          add: 'Dockerfile'
+          message: Bump gocryptfs to v${{ steps.latest.outputs.gocryptfs_version }}
+          tag: v${{ steps.latest.outputs.gocryptfs_version }}-1
